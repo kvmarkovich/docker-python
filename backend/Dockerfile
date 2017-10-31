@@ -12,9 +12,7 @@ COPY . .
 RUN pwd
 RUN ls -al
 RUN pip3 install --no-cache-dir -r requirements.txt
-CMD [ "uwsgi", "--socket", "0.0.0.0:3031", \
-               "--plugins", "python3", \
+CMD [ "uwsgi", "--plugins", "python3", \
                "--protocol", "uwsgi", \
                "--py-autoreload", "1", \
-               "--callable", "app", \
-               "--wsgi-file", "/app/main.py" ]
+                "--ini", "uwsgi.ini"]
