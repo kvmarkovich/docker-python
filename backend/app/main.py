@@ -1,11 +1,9 @@
-from pyfiglet import Figlet
+from flask import Flask
 
-figlet = Figlet(font="slant")
+app = Flask(__name__)
 
 
-def application(environ, start_response):
-    start_response("200 OK", [("Content-Type", "text/plain"),
-                              ("Content-Encoding", "utf-8")])
-    yield figlet.renderText("Hello world!").encode("utf-8")
-    # for k, v in environ.items():
-    #     yield f"{k:>20} => {v}".encode("utf-8")
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
+

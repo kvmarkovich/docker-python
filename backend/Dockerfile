@@ -16,4 +16,5 @@ CMD [ "uwsgi", "--socket", "0.0.0.0:3031", \
                "--plugins", "python3", \
                "--protocol", "uwsgi", \
                "--py-autoreload", "1", \
+               "--callable", "app", \
                "--wsgi-file", "/app/main.py" ]
